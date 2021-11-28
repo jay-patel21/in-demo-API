@@ -5,11 +5,11 @@ export const connectDb = async () => {
     try {
         const connection = await createConnection({
             type: "postgres",
-            host: "localhost",
-            port: 9823,
-            username: "postgres",
-            password: "j95BbNgG0ovSfbmR5NCNG",
-            database: "postgres",
+            host: process.env.TYPEORM_HOST,
+            port: parseInt(process.env.TYPEORM_PORT),
+            username: process.env.TYPEORM_USERNAME,
+            password: process.env.TYPEORM_PASSWORD,
+            database: process.env.TYPEORM_DATABASE,
             entities: [
                 "src/entities/**/*.ts"
             ],
