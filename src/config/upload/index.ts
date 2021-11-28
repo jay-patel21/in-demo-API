@@ -2,7 +2,9 @@ import * as multer from 'multer';
 import path = require("path");
 import { Request } from 'express';
 
-
+/**
+ * Middleware for provide file destination
+ */
 export const upload = multer({
     storage: multer.diskStorage({
         destination: path.resolve(__dirname, "..", '..', '..', "assets"),

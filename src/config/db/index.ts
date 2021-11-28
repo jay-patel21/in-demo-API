@@ -1,6 +1,10 @@
 
 import { createConnection } from 'typeorm';
 
+/**
+ * Creating DB connection
+ */
+
 export const connectDb = async () => {
     try {
         const connection = await createConnection({

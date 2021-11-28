@@ -9,7 +9,7 @@ import { IUserRequest } from '../common/IReqest.interface';
 class UserService {
     
     /**
-     * Function for Get user
+     * Function for Get current loggedin user details
      * @param req 
      * @param res 
      */
@@ -38,7 +38,7 @@ class UserService {
  
     
     /**
-     * Function for update user
+     * Update  user details by email for current login user 
      * @param req 
      * @param res 
      */
@@ -61,7 +61,7 @@ class UserService {
     }   
 
     /**
-     * Function for  Uploaf file
+     * Function for  Uploaf file for current logged in user
      * @param req 
      * @param res 
      */

@@ -15,8 +15,8 @@ class App {
                 this.app.use(bodyParser.json());
                 this.app.use(cors());
                 this.app.use(router);
+                // To serve static file from the server
                 this.app.use(`/${UPLOAD.FOLDER}`, express.static(path.resolve(__dirname, "..", ".", UPLOAD.FOLDER)));
-                this.app.use(express.json());
         }
 
 }

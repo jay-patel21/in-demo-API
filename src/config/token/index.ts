@@ -5,6 +5,13 @@ import { Middleware } from 'express-validator/src/base';
 import { IUserRequest } from '../../common/IReqest.interface';
 import { ERROR_CODE } from '../../common/constant';
 
+/**
+ * verify the token and get current logged in user
+ * @param request 
+ * @param response 
+ * @param next 
+ * @returns 
+ */
 export const verifyToken: Middleware = async (request: IUserRequest, response: Response, next: NextFunction) => {
 
     if (request) {
@@ -31,6 +38,9 @@ export const verifyToken: Middleware = async (request: IUserRequest, response: R
     }
 };
 
+/**
+ * Get token
+ */
 export const getToken = (context: { email: string, firstName: string }) => {
     const { email, firstName } = context;
     return jwt.sign(
