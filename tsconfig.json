@@ -1,0 +1,16 @@
+{  
+    "compilerOptions":{  
+       "module":"commonjs",
+       "skipLibCheck": true,
+       "target":"es6",
+       "noImplicitAny": true,
+       "experimentalDecorators": true,
+       "emitDecoratorMetadata": true,
+    },
+    "include":[  
+       "src/**/*.ts"
+    ],
+    "exclude":[  
+       "node_modules"
+    ]
+}
