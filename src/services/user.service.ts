@@ -39,9 +39,8 @@ class UserService {
             if (req.body.password) {
                 const salt = await bcrypt.genSaltSync(Number(process.env.saltOrRounds));
                 req.body.password = bcrypt.hashSync(req.body.password, salt);
-                console.log(req.body.password)
             }
-            userRepository.update({ email }, { ...req.body })
+            userRepository.update({ email }, { ...req.body });
             res.status(200).send({
                 message: 'User update successfully!'
             });
@@ -56,7 +55,7 @@ class UserService {
 
         try {
             const userRepository = getConnection().getRepository(UserEntity);
-            await userRepository.update({ email }, { profileImage: filename })
+            await userRepository.update({ email }, { profileImage: filename });
             res.status(200).send({
                 message: "Uploaded successFully!"
             });

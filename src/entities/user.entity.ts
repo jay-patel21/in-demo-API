@@ -1,5 +1,5 @@
 import { IsEmail, Length } from "class-validator";
-import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity } from "typeorm";
 import * as bcrypt from 'bcryptjs';
 import { Base } from "../common/base.entity";
 
@@ -28,15 +28,12 @@ export class UserEntity extends Base {
 
 
   async comparePassword(attempt: string): Promise<boolean> {
-    return  bcrypt.compareSync(attempt, this.password);
+    return bcrypt.compareSync(attempt, this.password);
   }
 
   @BeforeInsert()
   async hashPassword() {
     const salt = await bcrypt.genSaltSync(Number(process.env.saltOrRounds));
-    console.log(salt)
-    console.log(this.password);
-    this.password =  bcrypt.hashSync(this.password, salt);
-    console.log(this.password)
+    this.password = bcrypt.hashSync(this.password, salt);
   }
 }

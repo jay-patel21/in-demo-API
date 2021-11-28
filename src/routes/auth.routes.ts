@@ -1,7 +1,5 @@
 import * as express from 'express';
 import authService from '../services/auth.service';
-import * as multer from 'multer';
-import { upload } from './../config/upload'
 import { checkValidation, validate } from '../config/validation';
 import { VALIDATION } from '../common/constant';
 

@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
 import { getConnection } from 'typeorm';
 import { getToken } from '../config/token';
 import { UserEntity } from '../entities/user.entity';
@@ -15,12 +14,12 @@ class AuthService {
         where: {
           email
         }
-      })
+      });
 
       if (user) {
         return res.status(404).json({
           "message": "email/User already exist do you want to login instead?"
-        })
+        });
       }
 
       const userStore = await userRepository.create({
@@ -29,17 +28,17 @@ class AuthService {
         email: email,
         password,
         profileImage,
-      })
+      });
 
       await userRepository.save(userStore);
 
       return res.status(200).send({
         token: getToken({ email, firstName })
-      })
+      });
     } catch (error) {
       return res.status(404).json({
         "message": `${error}`
-      })
+      });
     }
   }
 
@@ -56,17 +55,17 @@ class AuthService {
       if (!user || !(await user.comparePassword(password))) {
         return res.status(400).send({
           message: "Incorrect email or password!"
-        })
+        });
       }
 
       return res.status(200).send({
         token: getToken({ email, firstName: user.firstName })
-      })
+      });
     } catch (error) {
       console.log(error);
       return res.status(400).send({
         message: error
-      })
+      });
     }
   }
 }

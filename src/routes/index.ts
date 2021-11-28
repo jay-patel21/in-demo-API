@@ -6,6 +6,4 @@ const router: express.Router = express.Router();
 
 router.use('/user', userRoutes);
 router.use('/auth', authReoutes);
-
-console.log('ff00');
 export { router };

@@ -1,8 +1,6 @@
 
 import { createConnection } from 'typeorm';
 
-
-
 export const connectDb = async () => {
     try {
         const connection = await createConnection({
@@ -18,9 +16,8 @@ export const connectDb = async () => {
             synchronize: true,
             logging: false
         });
-        console.log('ffff')
-        return connection
+        return connection;
     } catch (error) {
         console.error(error);
     }
-}
+};
