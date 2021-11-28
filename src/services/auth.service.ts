@@ -5,9 +5,13 @@ import { UserEntity } from '../entities/user.entity';
 
 class AuthService {
 
+  /**
+     * Function for Register user
+     * @param req 
+     * @param res 
+  */
   async registerUser(req: Request, res: Response) {
     const { email, firstName, lastName, password, profileImage, } = req.body;
-
     try {
       const userRepository = getConnection().getRepository(UserEntity);
       const user = await userRepository.findOne({
@@ -42,7 +46,11 @@ class AuthService {
     }
   }
 
-
+  /**
+       * Function for Login user
+       * @param req 
+       * @param res 
+  */
   async logIn(req: Request, res: Response) {
     const { email, password } = req.body;
     try {

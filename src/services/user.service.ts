@@ -7,7 +7,12 @@ import { IUserRequest } from '../common/IReqest.interface';
 
 
 class UserService {
-
+    
+    /**
+     * Function for Get user
+     * @param req 
+     * @param res 
+     */
     async getUser(req: IUserRequest, res: Response) {
         const { email } = req.currentUser;
         try {
@@ -30,7 +35,13 @@ class UserService {
             });
         }
     }
-
+ 
+    
+    /**
+     * Function for update user
+     * @param req 
+     * @param res 
+     */
     async updateUser(req: IUserRequest, res: Response) {
         const { email } = req.currentUser;
         try {
@@ -47,8 +58,13 @@ class UserService {
         } catch (error) {
             res.status(400).send(error);
         }
-    }
+    }   
 
+    /**
+     * Function for  Uploaf file
+     * @param req 
+     * @param res 
+     */
     async uploadProfile(req: IUserRequest, res: Response) {
         const { email } = req.currentUser;
         const { filename } = req.file;
