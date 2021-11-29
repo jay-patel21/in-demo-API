@@ -21,3 +21,6 @@ npm start
 	b. Create an empty database on the local system.
 
 	c. Schema will be created on server start.
+
+## DUMP
+Dump data can be use for reference from dump folder.
